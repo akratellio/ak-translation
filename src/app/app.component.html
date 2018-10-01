@@ -1,0 +1,33 @@
+<!--div id="wizard">{{ 'wizard' | akTranslation}}</div>
+<div id="dwarf">{{ 'dwarf' | akTranslation}}</div>
+<div [innerText]="('dwarf1' | akTranslation) || 'Other text'">Other text</div>
+<div>{{ ('dwarf1' | akTranslation) || 'other text'}}</div>
+<div id="hobbitname">{{ 'hobbitname' | akTranslation : ['Bilbo', 'Beutling']}}</div>
+<div id="wizardname">{{ 'wizardname' | akTranslation : ({firstname: 'Gandalf', lastname: 'lastnameOfGandalf' | akTranslation}) }}</div>
+<div id="noname-placeholder">{{ ('noname' | akTranslation : ['Bilbo', 'Beutling']) || 'placeholder'}}</div>
+<div id="translate-placeholder">{{('placeholder' | akTranslation) || 'placeholder'}} </div>
+<div class="hobbit empty">{{ 'hobbit' | akTranslationPlural }}</div>
+<div class="hobbit zero">{{ 'hobbit' | akTranslationPlural : 0}}</div>
+<div class="hobbit one">{{ 'hobbit' | akTranslationPlural : 1}}</div>
+<div class="hobbit two">{{ 'hobbit' | akTranslationPlural : 2}}</div>
+<div class="hobbit other">{{ 'hobbit' | akTranslationPlural : 3}}</div-->
+
+
+<div><ak-translation [akTKey]="'wizard'"></ak-translation></div>
+<div><ak-translation [akTKey]="'hobbitname'" [akTSubstitutions]="['Bilbo', 'Beutling']"></ak-translation></div>
+<div><ak-translation [akTKey]="'hobbitname'" [akTSubstitutions]="'Bilbo'"></ak-translation></div>
+<div><ak-translation [akTKey]="'wizardname'" [akTSubstitutions]="{firstname: 'Gandalf', lastname: 'lastnameOfGandalf' | akTranslation}"></ak-translation></div>
+
+<div><ak-translation-plural [akTKey]="'hobbit'" [akTPlural]="0"></ak-translation-plural></div>
+<div><ak-translation-plural [akTKey]="'hobbit'" [akTPlural]="1"></ak-translation-plural></div>
+<div><ak-translation-plural [akTKey]="'hobbit'" [akTPlural]="2"></ak-translation-plural></div>
+<div><ak-translation-plural [akTKey]="'hobbit'" [akTPlural]="3"></ak-translation-plural></div>
+<p></p>
+<button id="language-de" 
+  (click)="akTranslationService.setLanguage('de')">
+  de
+</button>
+<button id="language-en" 
+  (click)="akTranslationService.setLanguage('en')">
+  en
+</button>
